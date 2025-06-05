@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="smart home elcetrical limited Trinidad and Tobago"  content=" smart homes system,Resdential elcetrical,wiring,safe,Trinidad,commercial ">
+  <meta name="smarthomeselectrical limited" content="Smart Homes Electrical Company Limited acronym (SHECL) I duly incorporated in Trinidad and Tobago. Electricity is an essential service that is always needed in this power-hungry world. SHECL's main services are General Electrical works (domestic and industrial) with the installation of high-end electrical systems for security, data transfer and communication. In terms of sustainability and diversification SHECL is exploring opportunities to integrate Smart Home Technology and Climate Change Solutions to our portfolio. (SHECL), provides the satisfaction of human wants through sustainable smart home systems while still providing traditional wiring to customers.
+  Lets be honest electrical installation is changing, lower power factor bigger switch gear and cables fighting with power management now the industry has power management on a different level by using extra low voltage systems, mini-computers and different features to manage safe cost and reduce the load taken from supply grid.
+  After years of traditional wiring in Trinidad and Tobago we have seen a need for upgrading electrical systems for power management, lighting and security features. ">
+  <!-- Link the necessary Bootstrap CSS files -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="asset/css/all.css">
+  </head>
+  <body>
+    <div class="container-fluid bg">
+     
+   <div>
+       <div class="row bspace"> <!-- Nav Row -->
+         
+         <div class="col-sm-12 text-center">
+        <div class="pnav" style = "color:rgb(0, 0, 0);" >
+         
+            <a href="index.html">HOME</a>|
+            <a href="services.html">SERVICES </a> |
+            <a href="about.html">ABOUT US</a> |
+            <a href="contact.html">CONTACT US</a> |
+            <a href="sign up.html">Sign Up</a> |
+       </div>
+     </div> 
+     
+     </div> 
+    <div>
+   
+          
+    
+   
+
+        <header class="masthead" style="background-image: url('images/man.holding-hard-hat.jpg')"> 
+            <div class="container position-relative px-4 px-lg-5" > 
+                 <div class="row gx-4 gx-lg-5 justify-content-center"> 
+               <div class="col-sm-10 col-sm-8 col-xl-7"> <div 
+
+        class="page-heading"> <span class="subheading"></span>
+     </div> </div> </div> </div> 
+    </header>
+
+ <div class="g"> 
+         <a href="index.html">
+        <div class="lpic"><img src="images/smartgomes.png" class="lsize" 
+          alt="logo image for smart homes electrical website  website"/>
+        </a>
+  
+      </div>
+       
+    
+       
+        <section>
+                <div class="container-fluid">
+                   
+                    <!-- Contact form-->
+                    <div class="bg-light rounded-12 py-12 px-12 px-md-12">
+                        <div class="text-center mb-12">
+                            <div style="background-color:silver;">
+                            <h1 >CONTACT US </h1>
+                            <h2>ForAll Your Electrical Needs</h2>
+                            
+                      
+                       
+                        <div class="row gx-12 justify-content-center">
+                            <div class="col-sm-12 col-sm-12">
+                              
+                                <form id="contactForm">
+                                    <div style="background-color:silver;">
+                                    <!-- Name input-->
+                                    <div class="form-floating mb-12">
+                                        <label for="name">Full name</label>
+                                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                        
+                                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                    </div>
+                                    <!-- Email address input-->
+                                    <div class="form-floating mb-12">
+                                        <label for="email">Email address</label>
+                                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                        
+                                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                    </div>
+                                    <!-- Phone number input-->
+                                    <div class="form-floating mb-12">
+                                        <label for="phone">Phone number</label>
+                                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                       
+                                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                    </div>
+                                    <!-- Message input-->
+                                    <div class="form-floating mb-12">
+                                        <label for="message">Message</label>
+                                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                     
+                                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                    </div>
+                                    <!-- Submit success message-->
+                                 
+                                 
+                                    <div class="d-none" id="submitSuccessMessage">
+                                        <div class="text-center mb-12">
+                                            <div class="fw-bolder">Form submission successful!</div>
+                                            To activate this form, sign up at
+                                            <br />
+                                            <a href="izahseaton@gmail.com"></a>
+                                        </div>
+                                    </div>
+                                    <!-- Submit error message-->
+                                
+                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-12">Error sending message!</div></div>
+                                    <!-- Submit Button-->
+                                    <div class="d-grid "><button class="btn btn-primary btn-lg " id="submitButton" type="submit">Submit</button></div>
+                                </form>
+                                <script>
+                                    // Wait for the DOM to be ready
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        // Define validation function
+                                        function validateForm(event) {
+                                            var form = event.target;
+                                
+                                            if (form.checkValidity() === false) {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                            }
+                                
+                                            form.classList.add("was-validated");
+                                        }
+                                
+                                        // Fetch the form element
+                                        var form = document.getElementById("contactForm");
+                                
+                                        // Add event listener for form submission
+                                        form.addEventListener("submit", validateForm);
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+      
+            <div class="container-fluid full-width bg"> <!-- 2nd container -->
+  
+                <div class="col-sm-12">  
+                
+              <div class="row text text-center" style="color: rgb(0, 0, 0);" > <!-- footer links and info -->
+                <div class="col-sm-4">
+                  <h3>Quick Contact Information</h3>
+                  <li class="icon"> <i class="fa-solid fa-phone"></i></li>
+                  <p>12345679</p>
+                  <li class="icon"><i class="fa-brands fa-whatsapp"></i></li>
+                  <p>887567456</p>
+                  <li class="icon"> <i class="fa-solid fa-envelope"></i></li>
+                  <p>smarthomeselectrical@gmail.com </p>
+                </div>
+                <div class="col-sm-4  " style="font-size: large;" >
+                  <h3>Partnerships </h3>
+                  <a href="#" class="flinks"class="bspace"><p> </p>  </a>
+                  <br>
+                  
+                  <a href="#" class="flinks"><p>General electric</p> </a>
+                  <br>
+                  <a href="#" class="flinks"><p>Modern electrical</p> </a>
+                  
+            
+                  
+                  
+                </div>
+                <div class="col-sm-4"class="icon" >
+                </div>
+               
+                    <div class="col-sm-4"class="icon" >
+                        <h3>Social Media</h3>
+                        
+                       <li class="icon" ><i class="fa-brands fa-facebook"alt="smart homes elcetrical facebook"></i></li> 
+                       <p>facebook</p>
+                       <li class="icon" ><i class="fa-brands fa-square-instagram" alt="smart homes elcetrical instagram "></i></li>
+                       <p>instagram</p>
+                       
+                        
+                       <li class="icon" > <i class="fa-brands fa-linkedin"alt="smart homes elcetrical linkedin"></i></li>
+                       <p>linkedin</p>
+                      </div>
+            </div>
+        </div>
+    </div>
+      
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
