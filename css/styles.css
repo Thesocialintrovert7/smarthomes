@@ -37,13 +37,21 @@ h1{
 }
 
 .hdrimage {
-    background-image: url('../images/grey.jpeg');
-    background-size:cover; /* Zoomed out by 10% */
-    background-position: center; 
-    height: 200px; 
+    background-image: url('../images/header.jpg');
+    background-size: cover;           /* Ensures the image covers the full area */
+    background-position: center;      /* Keeps the image centered */
+    background-repeat: no-repeat;     /* Prevents tiling */
+    height: 300px;                    /* Sets header height */
+    width: 100%;                      /* Ensures full width */
+    display: flex;                    /* Enables content centering */
+    align-items: center;             /* Vertically center content */
+    justify-content: center;         /* Horizontally center content */
+    color: grey;
     text-align: center;
-    color: grey; 
+    overflow: hidden;                /* Prevents content spill */
 }
+
+
  .lpic{
 	position: absolute;
 	top: 0px;
