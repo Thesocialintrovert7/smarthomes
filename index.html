@@ -1,253 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="smart home elcetrical limited Trinidad and Tobago"  content=" smart homes system,Resdential elcetrical,wiring,safe,Trinidad,commercial ">
-  <meta name="smarthomeselectrical limited" content="Smart Homes Electrical Company Limited acronym (SHECL) I duly incorporated in Trinidad and Tobago. Electricity is an essential service that is always needed in this power-hungry world. SHECL's main services are General Electrical works (domestic and industrial) with the installation of high-end electrical systems for security, data transfer and communication. In terms of sustainability and diversification SHECL is exploring opportunities to integrate Smart Home Technology and Climate Change Solutions to our portfolio. (SHECL), provides the satisfaction of human wants through sustainable smart home systems while still providing traditional wiring to customers.
-  Lets be honest electrical installation is changing, lower power factor bigger switch gear and cables fighting with power management now the industry has power management on a different level by using extra low voltage systems, mini-computers and different features to manage safe cost and reduce the load taken from supply grid.
-  After years of traditional wiring in Trinidad and Tobago we have seen a need for upgrading electrical systems for power management, lighting and security features. ">
-  <!-- Link the necessary Bootstrap CSS files -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="asset/css/all.css">
-    
-  <!-- Link FontAwesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-  <!-- Link Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  </head>
- <body>
-  
- 
-  <div class="container-fluid bg " style="color: #000000;">
-     
-
-     <title>smarthomeselectrical tt</title>
-<div>
-    <!-- Add Hamburger Menu in the Nav Row -->
-<div class="row bspace">  <!-- Nav Row -->
-  <div class="col-sm-12 text-center">
- <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #C0C0C0;">
-  <!-- Navbar content here -->
-</nav>
-
-          <div class="col-sm-12 text-center">
-        <div class="pnav" style = "color:rgb(0, 0, 0);" >
-         
-          
-
-      </a>
-      
-      <!-- Hamburger Button -->
-<button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <i class="fa-solid fa-bars"></i> <!-- FontAwesome hamburger icon -->
-</button>
-
-      
-      <!-- Navbar Links -->
-       
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <a href="index.html">HOME</a>|
-            <a href="services.html">SERVICES </a> |
-            <a href="about.html">ABOUT US</a> |
-            <a href="contact.html">CONTACT US</a> |
-            <a href="sign up.html">Sign Up</a> |
-      </div>
-    </nav>
-  </div>
-</div> <!-- End Nav Row -->
-
- 
-  
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Manager TT</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<div class="text-center ">
-  <h1> Smart Homes Electrical Limited</h1>
-</div>
- 
-</div>
 
 <body>
-  <!--Web Page Header-->
-  <div class="jumbotron text-center hdrimage  "style="transform: translate 60px,120px">
-    <a href="index.html">
-    <div class="lpic"><img src="images/smartgomes.png" class="lsize" 
-      alt="logo image for smart homes electrical website  website"/>
-      </a>
-     
 
-    </div>
-  
+  <div class="container">
+    <h1>Business Stock Manager</h1>
 
-   
-
-</div> <!-- End Header -->
-
-
-
-<div class="row tspace"> <!-- About Summary-->
-  <div class="col-sm-4">
-    <img class="mpic" src="images/smartgomes.png" 
-    alt="main pic" /> 
-  </div>
-
-    <div class="col-sm-8" style="color: rgb(0, 0, 0); background-color:silver; border-radius: 1cap; font-size: 20;"> 
-  <b><h2 style="font-size:31pt "> smart homes electrical provides services ...... </h2></b>
-  <p style="font-size:21pt " style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> 
-    
-    
-    such as electronic locking, installation of security cameras, power management systems, commercial services, NFC cards <div class="text-center" class="">
-      <a href="services.html">
-      <button class="button">Learn More</button>
-      </div> </p>
-    </div>
- </div>
-</div> <!-- End About -->
-
-<!-- Featured Items -->
-<div class="row tspace"> <!-- Heading -->
-  <div class="col-sm-12 text-center">
-    <h2>Featured Services</h2>
-  </div>
-</div>
-
-<div class="row fibg text-center"> <!-- Featured Images Row 1 -->
-  
-  <div class="col-sm-3 tspace">
-    <a target="_blank" href="images/">
-      <img src="images/biometic.jpg" class ="fpic" alt="image of electronic locking"/>
-    </a>
-    <div class="icap">Electronic Locking </div>
-  </div>
-
-  <div class="col-sm-3 tspace">
-    <a target="_blank" href="images/camera.png">
-      <img src="images/camera.png" class ="fpic" alt="image of camera installation" />
-    </a>
-    <div class="icap">Camera Installation </div>
+    <!-- Settings -->
+    <div class="settings">
+      <label>
+        Low Stock Warning:
+        <input type="number" id="stock-threshold" min="0" value="25" onchange="setLowStockThreshold()" />
+      </label>
     </div>
 
-  <div class="col-sm-3 tspace">
-    <a target="_blank" href="images/">
-      <img src="images/commerical electric.jpg" class ="fpic" alt="image of power management system"/>
-    </a>
-    <div class="icap">Power Managment systems </div>
-    
-  </div>
-
-  <div class="col-sm-3 tspace">
-    <a target="_blank" href="images/residential .jpg">
-      <img src="images/residential .jpg" class ="fpic" alt="image of Residential Service"/>
-    </a>
-    <div class="icap">Residential Service </div>
-  </div>
-
-</div>
-
-<div class="row fibg text-center"> <!-- Featured Images Row 2 -->
-  <div class="col-sm-3 bspace">
-    <a target="_blank" href="images/nfc.jpg">
-      <img src="images/nfc.jpg" class ="fpic" alt="nfc card/near field communication"/>
-    </a>
-    <div class="icap">NFC Cards</div>
-  </div>
-
-  <div class="col-sm-3 bspace">
-     <a target="_blank" href="images/elctrical panel  .jpg">
-      <img src="images/elctrical panel  .jpg" class ="fpic" alt="image of elcetrical repair service"/>
-    </a>
-    <div class="icap">Electrical Panel Installation</div>
+    <!-- Actions -->
+    <div class="actions">
+      <button onclick="undoLastChange()">Undo Last Change</button>
+      <button onclick="clearProductList()">Clear Product List</button>
+      <button onclick="filterLowStock()">Show Low Stock</button>
+      <button onclick="loadProducts()">Show All Products</button>
+      <button onclick="exportToCSV()">Export to CSV</button>
+      <label class="import-btn">
+        Import from CSV
+        <input type="file" accept=".csv" onchange="importFromCSV(event)" />
+      </label>
+      <button onclick="undoLastImport()">Undo Last Import</button>
     </div>
 
-  <div class="col-sm-3 bspace">
-    <a target="_blank" href="images/repair.jpg">
-      <img src="images/electical repair.jpg" class ="fpic" alt="image of elcetrical repair service"/>
-    </a>
-    <div class="icap">Electrical Repair</div>
-    
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search by product name or barcode..." />
+    </div>
+
+    <!-- Add Product Form -->
+    <form id="product-form">
+      <input type="text" id="name" placeholder="Product Name" required />
+      <input type="text" id="barcode" placeholder="Barcode" required />
+      <input type="number" id="quantity" placeholder="Quantity" min="0" required />
+      <input type="number" id="price" placeholder="Price" min="0" step="0.01" required />
+
+      <!-- Supplier Dropdown -->
+      <select id="supplier" required>
+        <option value="">Select Supplier</option>
+      </select>
+
+      <button type="submit">Add Product</button>
+    </form>
+
+    <!-- Add Supplier Section -->
+    <div class="add-supplier">
+      <h3>Add Supplier</h3>
+      <input type="text" id="supplier-name" placeholder="Supplier Name" />
+      <button onclick="addSupplier()">Add Supplier</button>
+    </div>
+
+    <!-- Low Stock Alert -->
+    <div class="low-stock-alert" id="low-stock-alert"></div>
+    <!-- Grand Total Summary -->
+    <div class="grand-total-summary">
+      <strong>Grand Total:</strong> <span id="grand-total">$0.00</span>
+    </div>
+
+    <!-- Product Table -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Supplier</th>
+            <th>Barcode</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Price × Quantity</th>
+            <th>Last Updated</th>
+            <th>Action</th>
+            <!-- Back to Top Button -->
+            <button id="backToTopBtn" title="Go to top">↑ Page Up</button>
+          </tr>
+
+        </thead>
+
+        <tbody id="product-list"></tbody>
+      </table>
+
+    </div>
+
   </div>
 
-  <div class="col-sm-3 bspace">
-    <a target="_blank" href="images/smarthomes.jpg">
-      <img src="images/smart home.png" class ="fpic" alt="image of elcetrical repair installation service" />
-    </a>
-    <div class="icap">Smart Home Installation</div>
-  </div>
 
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js "></script>
+  <!-- For CSV parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js "></script>
 
-</div>
-<!-- End Featured Items -->
+  <!-- For Excel (.xlsx, .xls), ODS (.ods) parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js "></script>
 
-
-</div> 
-
-
-    
-
-<div class="container-fluid full-width bg"> <!-- 2nd container -->
-  
-    <div class="col-sm-12">  
-    
-  <div class="row text text-center" style="color: rgb(0, 0, 0);" > <!-- footer links and info -->
-    <div class="col-sm-4">
-      <h3>Quick Contact Information</h3>
-      <li class="icon"> <i class="fa-solid fa-phone"></i></li>
-      <p>12345679</p>
-      <li class="icon"><i class="fa-brands fa-whatsapp"></i></li>
-      <p>887567456</p>
-      <li class="icon"> <i class="fa-solid fa-envelope"></i></li>
-      <p>smarthomeselectrical@gmail.com </p>
-    </div>
-    <div class="col-sm-4  " style="font-size: large;" >
-      <h3>Partnerships </h3>
-      <a href="#" class="flinks"class="bspace"><p> </p>  </a>
-      <br>
-      
-      <a href="#" class="flinks"><p>General electric</p> </a>
-      <br>
-      <a href="#" class="flinks"><p>Modern electrical</p> </a>
-      
-
-      
-      
-    </div>
-    <div class="col-sm-4"class="icon" >
-      <h3>Social Media</h3>
-      
-     <li class="icon" ><i class="fa-brands fa-facebook"></i></li> 
-     <p>facebook</p>
-     <li class="icon" ><i class="fa-brands fa-square-instagram"></i></li>
-     <p>instagram</p>
-      
-     <li class="icon" > <i class="fa-brands fa-linkedin"></i></li>
-     <p>linkedin</p>
-    </div>
-
-  </div> <!-- End footer links -->
-
-  <div class="row text-center"> <!-- Copyright Info -->
-    <div class="col-sm-12" style="color: #000000;">Copyright &copy; smart homes elcetrical limited</div>
-  </div> <!-- End Copyright -->
-
-</div> <!--End 2nd Container -->
-
-
-
-
-
-<!-- Provide the links to the JS files --> 
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
+  <!-- Service Worker for PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(() => console.log('Service Worker registered'))
+          .catch(error => console.log('SW registration failed:', error));
+      });
+    }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4168802109211914"
+    crossorigin="anonymous"></script>
+  <a href="terms-of-service.html">Terms of Service</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
 </body>
+>
+
 </html>
