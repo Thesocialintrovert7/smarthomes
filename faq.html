@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQs - Stock Manager TT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background-color: #0d47a1;
+      color: white;
+      padding: 15px 20px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .nav-menu li a:hover {
+      opacity: 0.8;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2 {
+      color: #0d47a1;
+    }
+
+    p,
+    li {
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      padding: 10px;
+      overflow-x: auto;
+      border-left: 4px solid #0d47a1;
+      margin: 1em 0;
+    }
+
+    code {
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Stock Manager TT</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="guides.html">Guides</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- FAQ Content -->
+  <div class="container">
+    <h1>Frequently Asked Questions (FAQs)</h1>
+    <p>Welcome to the <strong>FAQs</strong> section for <strong>Stock Manager TT</strong>, a simple and powerful tool
+      designed for small businesses in Trinidad and Tobago.</p>
+
+    <hr />
+
+    <section>
+      <h2>📦 General Questions</h2>
+
+      <h3>1. Is Stock Manager TT free to use?</h3>
+      <p>✅ Yes! Stock Manager TT is completely free to use. You can access it directly from your browser — no
+        installation required.</p>
+
+      <h3>2. Do I need an internet connection to use it?</h3>
+      <p>🔌 The app works best with an internet connection, especially when exporting or importing data. You can also
+        save it as a PWA and use it offline, but some features may be limited.</p>
+
+      <h3>3. Can I use this app on mobile devices?</h3>
+      <p>📱 Yes! The app is fully responsive and works on desktops, tablets, and smartphones. You can install it as a
+        web app on your home screen for easy access.</p>
+
+      <h3>4. Is my data secure?</h3>
+      <p>🔒 All your data is stored locally in your browser’s <code>localStorage</code>. It is not sent to any server
+        unless you manually export it.</p>
+      <p><strong>Note:</strong> For sensitive business data, always ensure your device is secure and back up regularly.
+      </p>
+    </section>
+
+    <section>
+      <h2>📥 Importing Data</h2>
+
+      <h3>1. What file formats does the app support for import?</h3>
+      <p>📥 Supported formats include:</p>
+      <ul>
+        <li><code>.csv</code> (Comma-Separated Values)</li>
+        <li><code>.xlsx</code>, <code>.xls</code> (Excel files)</li>
+        <li><code>.ods</code> (OpenDocument Spreadsheets)</li>
+      </ul>
+
+      <h3>2. How do I prepare my CSV file for import?</h3>
+      <p>Your CSV should contain these columns:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>Product name</td>
+          </tr>
+          <tr>
+            <td>Supplier</td>
+            <td>Optional: Supplier name</td>
+          </tr>
+          <tr>
+            <td>Barcode</td>
+            <td>Unique ID for the product</td>
+          </tr>
+          <tr>
+            <td>Quantity</td>
+            <td>Number of items in stock</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>Cost per unit</td>
+          </tr>
+          <tr>
+            <td>Last Updated</td>
+            <td>Date/time of last update</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>The column "Total Value" will be ignored during import.</p>
+
+      <h3>3. Why isn’t my CSV file importing correctly?</h3>
+      <p>🛠️ Common issues:</p>
+      <ul>
+        <li>Missing required fields (Name, Barcode, Quantity, Price)</li>
+        <li>Duplicate barcodes</li>
+        <li>Extra characters like <code>$</code>, <code>"</code>, or commas</li>
+        <li>Incorrect formatting</li>
+      </ul>
+      <p>The app automatically skips invalid rows and duplicates.</p>
+
+      <h3>4. Can I undo an import if something goes wrong?</h3>
+      <p>🔄 Yes! Use the <strong>"Undo Last Import"</strong> button to restore your previous product list.</p>
+    </section>
+
+    <section>
+      <h2>📤 Exporting Data</h2>
+
+      <h3>1. How do I export my inventory list?</h3>
+      <p>💾 Click the <strong>"Export to CSV"</strong> button to download your current inventory as a CSV file.</p>
+      <p>This file includes:</p>
+      <ul>
+        <li>Product Name</li>
+        <li>Supplier</li>
+        <li>Barcode</li>
+        <li>Quantity</li>
+        <li>Price</li>
+        <li>Total Value (calculated as Quantity × Price)</li>
+        <li>Last Updated timestamp</li>
+        <li>A final row showing the Grand Total value of all stock</li>
+      </ul>
+
+      <h3>2. Does the exported CSV include dollar signs?</h3>
+      <p>💰 No. Prices and total values are exported without <code>$</code> symbols for easier use in other systems.</p>
+
+      <h3>3. Can I edit the exported CSV and re-import it?</h3>
+      <p>📝 Yes! You can:</p>
+      <ol>
+        <li>Export your inventory</li>
+        <li>Edit it in Excel or Google Sheets</li>
+        <li>Save it as <code>.csv</code></li>
+        <li>Re-import it into the app</li>
+      </ol>
+      <p><strong>Important:</strong> Don’t change or remove the barcode field to avoid duplicates.</p>
+    </section>
+
+    <section>
+      <h2>⚙️ Managing Products & Suppliers</h2>
+
+      <h3>1. How do I add a new supplier?</h3>
+      <p>➕ To add a supplier:</p>
+      <ol>
+        <li>Type the supplier's name into the input field under “Add Supplier”</li>
+        <li>Click the <strong>"Add Supplier"</strong> button</li>
+      </ol>
+      <p><strong>Note:</strong> Duplicate supplier names are not allowed.</p>
+
+      <h3>2. Can I edit product quantity or price after adding them?</h3>
+      <p>✍️ Yes! You can edit the quantity or price directly in the table — changes are saved automatically.</p>
+
+      <h3>3. How do I delete a product?</h3>
+      <p>🗑️ Each product has a <strong>"Delete"</strong> button in the last column. You’ll be prompted to confirm
+        deletion.</p>
+
+      <h3>4. Can I search for products?</h3>
+      <p>🔍 Yes! Use the search bar at the top to find products by product name, supplier, or barcode. Results update in
+        real time.</p>
+    </section>
+
+    <section>
+      <h2>🔍 Low Stock Tracking</h2>
+
+      <h3>1. How does low stock tracking work?</h3>
+      <p>📉 You can set a low stock threshold using the input box under "Low Stock Warning". Any product with quantity
+        equal to or less than that number will show a warning message.</p>
+
+      <h3>2. How do I view low stock items only?</h3>
+      <p>🔎 Click the <strong>"Show Low Stock"</strong> button to filter and display only products that are running low.
+      </p>
+    </section>
+
+    <section>
+      <h2>🔄 Undo & Reset</h2>
+
+      <h3>1. Can I undo changes or imports?</h3>
+      <p>↩️ Yes! You can:</p>
+      <ul>
+        <li><strong>Undo Last Change</strong>: Reverts to the previous version of your product list</li>
+        <li><strong>Undo Last Import</strong>: Restores your data to what it was before the most recent import</li>
+      </ul>
+      <p><strong>Warning:</strong> These actions cannot be undone once confirmed.</p>
+
+      <h3>2. How do I clear all products?</h3>
+      <p>💣 Click <strong>"Clear Product List"</strong> to remove all products from the app. A backup is saved so you
+        can restore later if needed.</p>
+
+      <h3>3. Can I reset the entire app?</h3>
+      <p>🔄 Yes! Click <strong>"Reset App"</strong> to remove all data including products, suppliers, settings, and
+        backups. Use this option carefully.</p>
+    </section>
+
+    <section>
+      <h2>🛠️ Technical Help</h2>
+
+      <h3>1. Why am I seeing errors when importing?</h3>
+      <p>🚨 Possible causes:</p>
+      <ul>
+        <li>Invalid file format</li>
+        <li>Missing required columns</li>
+        <li>Extra characters like <code>$</code>, <code>"</code>, or commas</li>
+        <li>Duplicates based on barcode</li>
+      </ul>
+      <p>The app will skip problematic rows and notify how many products were successfully imported.</p>
+
+      <h3>2. Can I customize the app or add more features?</h3>
+      <p>🔧 Yes! The app is open-source and customizable. You can:</p>
+      <ul>
+        <li>Add product categories</li>
+        <li>Track expiry dates</li>
+        <li>Set reorder level alerts</li>
+        <li>Build a multi-user version</li>
+      </ul>
+      <p>Let me know if you'd like help building any advanced features!</p>
+    </section>
+
+    <section>
+      <h2>💬 Need More Help?</h2>
+      <p>If you have a question that isn't covered here, feel free to reach out via the <strong>Contact Us</strong>
+        page. We're happy to help!</p>
+    </section>
+  </div>
+
+</body>
+
+</html>

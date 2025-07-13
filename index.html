@@ -2,17 +2,30 @@
 <html lang="en">
 
 <head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4168802109211914"
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stock Manager TT</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#ffffff" />
-  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Stock Manager TT</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="guides.html">Guides</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
   <div class="container">
     <h1>Business Stock Manager</h1>
 
@@ -67,6 +80,7 @@
 
     <!-- Low Stock Alert -->
     <div class="low-stock-alert" id="low-stock-alert"></div>
+
     <!-- Grand Total Summary -->
     <div class="grand-total-summary">
       <strong>Grand Total:</strong> <span id="grand-total">$0.00</span>
@@ -85,29 +99,22 @@
             <th>Price × Quantity</th>
             <th>Last Updated</th>
             <th>Action</th>
-            <!-- Back to Top Button -->
-            <button id="backToTopBtn" title="Go to top">↑ Page Up</button>
           </tr>
-
         </thead>
-
         <tbody id="product-list"></tbody>
       </table>
-
     </div>
 
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top">↑ Page Up</button>
   </div>
 
-
   <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js "></script>
   <script src="app.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js "></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js "></script>
-  <!-- For CSV parsing -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js "></script>
-
-  <!-- For Excel (.xlsx, .xls), ODS (.ods) parsing -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js "></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4168802109211914"
+    crossorigin="anonymous"></script>
 
   <!-- Service Worker for PWA -->
   <script>
@@ -119,11 +126,7 @@
       });
     }
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4168802109211914"
-    crossorigin="anonymous"></script>
-  <a href="terms-of-service.html">Terms of Service</a>
-  <a href="privacy-policy.html">Privacy Policy</a>
+
 </body>
->
 
 </html>

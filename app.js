@@ -1,49 +1,525 @@
-const _0x128353 = _0x3506; (function (_0x3a1c45, _0x462e17) { const _0x4f4b31 = _0x3506, _0x2da10c = _0x3a1c45(); while (!![]) { try { const _0x451045 = parseInt(_0x4f4b31(0x237)) / 0x1 + parseInt(_0x4f4b31(0x201)) / 0x2 * (-parseInt(_0x4f4b31(0x242)) / 0x3) + -parseInt(_0x4f4b31(0x233)) / 0x4 * (-parseInt(_0x4f4b31(0x205)) / 0x5) + -parseInt(_0x4f4b31(0x1f4)) / 0x6 * (parseInt(_0x4f4b31(0x259)) / 0x7) + parseInt(_0x4f4b31(0x23a)) / 0x8 + -parseInt(_0x4f4b31(0x221)) / 0x9 + parseInt(_0x4f4b31(0x1fa)) / 0xa; if (_0x451045 === _0x462e17) break; else _0x2da10c['push'](_0x2da10c['shift']()); } catch (_0x36c369) { _0x2da10c['push'](_0x2da10c['shift']()); } } }(_0x2bea, 0x65791)); function getLowStockThreshold() { const _0x524abc = _0x3506, _0x568216 = localStorage[_0x524abc(0x21d)](_0x524abc(0x21b)); return _0x568216 && !isNaN(_0x568216) ? parseInt(_0x568216) : 0x19; } let LOW_STOCK_THRESHOLD = getLowStockThreshold(); document[_0x128353(0x24b)](_0x128353(0x243), () => { const _0xd26abf = _0x128353; loadSuppliers(), loadProducts(), document[_0xd26abf(0x1ef)](_0xd26abf(0x23b))[_0xd26abf(0x24b)](_0xd26abf(0x1f6), addProduct); const _0x3523e1 = document[_0xd26abf(0x1ef)](_0xd26abf(0x22e)); _0x3523e1 && _0x3523e1[_0xd26abf(0x24b)](_0xd26abf(0x234), _0x3ac50b => { const _0x1df758 = _0xd26abf, _0x11e993 = _0x3ac50b[_0x1df758(0x22f)]['value'][_0x1df758(0x24a)](), _0x2601be = getProducts(), _0x5921ff = _0x2601be[_0x1df758(0x20b)](_0x4a2dc7 => _0x4a2dc7[_0x1df758(0x23c)]['toLowerCase']()[_0x1df758(0x23e)](_0x11e993) || _0x4a2dc7[_0x1df758(0x248)] && _0x4a2dc7[_0x1df758(0x248)][_0x1df758(0x24a)]()[_0x1df758(0x23e)](_0x11e993) || _0x4a2dc7['barcode']['includes'](_0x11e993)); loadProducts(_0x5921ff); }); window[_0xd26abf(0x206)] = () => { loadProducts(); }, window[_0xd26abf(0x231)] = () => { const _0x42c5c4 = _0xd26abf, _0x6a702e = getProducts()[_0x42c5c4(0x20b)](_0x262637 => _0x262637[_0x42c5c4(0x236)] <= LOW_STOCK_THRESHOLD); loadProducts(_0x6a702e); }; const _0x5859fd = document[_0xd26abf(0x1ef)]('stock-threshold'); _0x5859fd && (_0x5859fd[_0xd26abf(0x225)] = LOW_STOCK_THRESHOLD, _0x5859fd['addEventListener'](_0xd26abf(0x222), setLowStockThreshold)); }); function getSuppliers() { const _0x272995 = _0x128353; return JSON['parse'](localStorage[_0x272995(0x21d)](_0x272995(0x1fb)) || '[]'); } function saveSuppliers(_0x4c0f2e) { const _0x58df91 = _0x128353; localStorage[_0x58df91(0x241)](_0x58df91(0x1fb), JSON['stringify'](_0x4c0f2e)); } function loadSuppliers() { const _0x5e4c54 = _0x128353, _0x465304 = getSuppliers(), _0x12a082 = document['getElementById']('supplier'); _0x12a082[_0x5e4c54(0x20a)] = _0x5e4c54(0x232), _0x465304['forEach'](_0x56c73c => { const _0xc97adf = _0x5e4c54, _0x4bf515 = document[_0xc97adf(0x253)](_0xc97adf(0x20e)); _0x4bf515[_0xc97adf(0x225)] = _0x56c73c[_0xc97adf(0x23c)], _0x4bf515[_0xc97adf(0x209)] = _0x56c73c[_0xc97adf(0x23c)], _0x12a082[_0xc97adf(0x226)](_0x4bf515); }); } function addSupplier() { const _0x49db2d = _0x128353, _0x13b298 = document['getElementById'](_0x49db2d(0x1ea))[_0x49db2d(0x225)][_0x49db2d(0x203)](); if (!_0x13b298) { alert(_0x49db2d(0x1e6)); return; } const _0x420563 = getSuppliers(); if (_0x420563['some'](_0x4d049e => _0x4d049e[_0x49db2d(0x23c)] === _0x13b298)) { alert('A\x20supplier\x20with\x20that\x20name\x20already\x20exists.'); return; } _0x420563[_0x49db2d(0x21a)]({ 'name': _0x13b298 }), saveSuppliers(_0x420563), loadSuppliers(), document[_0x49db2d(0x1ef)]('supplier-name')['value'] = ''; } function getProducts() { const _0x2b8353 = _0x128353, _0x325c7f = localStorage[_0x2b8353(0x21d)](_0x2b8353(0x250)), _0x5347ee = _0x325c7f ? JSON[_0x2b8353(0x204)](_0x325c7f) : []; return _0x5347ee['map'](_0x3735c4 => ({ ..._0x3735c4, 'quantity': parseInt(_0x3735c4['quantity']), 'price': parseFloat(_0x3735c4['price']), 'updated': _0x3735c4['updated'] ? new Date(_0x3735c4['updated'])[_0x2b8353(0x223)]() : new Date()['toISOString']() })); } function saveProducts(_0x58f24a) { const _0x9d1cf1 = _0x128353, _0x1a34f5 = JSON[_0x9d1cf1(0x204)](localStorage[_0x9d1cf1(0x21d)](_0x9d1cf1(0x202)) || '[]'); _0x1a34f5['unshift']({ 'timestamp': new Date()[_0x9d1cf1(0x223)](), 'products': getProducts() }); if (_0x1a34f5['length'] > 0x5) _0x1a34f5[_0x9d1cf1(0x22d)](); localStorage[_0x9d1cf1(0x241)](_0x9d1cf1(0x202), JSON[_0x9d1cf1(0x1e9)](_0x1a34f5)), localStorage[_0x9d1cf1(0x241)]('products', JSON['stringify'](_0x58f24a)); } function loadProducts(_0x398f3f = getProducts()) { const _0x284b92 = _0x128353, _0x5a276d = document[_0x284b92(0x1ef)](_0x284b92(0x21e)); _0x5a276d[_0x284b92(0x20a)] = ''; if (_0x398f3f[_0x284b92(0x24c)] === 0x0) { _0x5a276d['innerHTML'] = _0x284b92(0x1f5), document['getElementById']('low-stock-alert')['style'][_0x284b92(0x230)] = 'none', updateGrandTotal(0x0); return; } let _0x327e50 = ![]; _0x398f3f[_0x284b92(0x212)]((_0x49ea3a, _0x4c0c78) => { const _0x4d519c = _0x284b92; if (_0x49ea3a[_0x4d519c(0x236)] <= LOW_STOCK_THRESHOLD) _0x327e50 = !![]; const _0x3b647a = document[_0x4d519c(0x253)]('tr'), _0x4667d6 = (_0x49ea3a[_0x4d519c(0x236)] * _0x49ea3a[_0x4d519c(0x220)])[_0x4d519c(0x257)](0x2); _0x3b647a['innerHTML'] = _0x4d519c(0x1fe) + _0x49ea3a[_0x4d519c(0x23c)] + _0x4d519c(0x219) + (_0x49ea3a[_0x4d519c(0x248)] || '-') + _0x4d519c(0x219) + _0x49ea3a[_0x4d519c(0x211)] + '</td>\x0a\x20\x20\x20\x20\x20\x20<td><input\x20type=\x22number\x22\x20value=\x22' + _0x49ea3a[_0x4d519c(0x236)] + _0x4d519c(0x20d) + _0x4c0c78 + _0x4d519c(0x252) + parseFloat(_0x49ea3a[_0x4d519c(0x220)])[_0x4d519c(0x257)](0x2) + '\x22\x20data-index=\x22' + _0x4c0c78 + '\x22\x20class=\x22price-input\x22\x20/></td>\x0a\x20\x20\x20\x20\x20\x20<td>$' + _0x4667d6 + '</td>\x0a\x20\x20\x20\x20\x20\x20<td>' + new Date(_0x49ea3a['updated'])[_0x4d519c(0x22b)]() + _0x4d519c(0x256) + _0x4c0c78 + _0x4d519c(0x1f0), _0x5a276d['appendChild'](_0x3b647a); }), document[_0x284b92(0x247)](_0x284b92(0x200))[_0x284b92(0x212)](_0x4dd347 => { const _0x10cc65 = _0x284b92; _0x4dd347[_0x10cc65(0x24b)](_0x10cc65(0x222), _0x3f4f52 => { const _0xea56d1 = _0x10cc65, _0x435de9 = parseInt(_0x3f4f52[_0xea56d1(0x22f)][_0xea56d1(0x207)][_0xea56d1(0x216)]), _0x3649e2 = parseInt(_0x3f4f52[_0xea56d1(0x22f)][_0xea56d1(0x225)]); if (!isNaN(_0x3649e2) && _0x3649e2 >= 0x0) { const _0x468407 = getProducts(); _0x468407[_0x435de9][_0xea56d1(0x236)] = _0x3649e2, _0x468407[_0x435de9][_0xea56d1(0x22a)] = new Date()[_0xea56d1(0x223)](), saveProducts(_0x468407), loadProducts(); } else alert(_0xea56d1(0x213)), loadProducts(); }); }), document[_0x284b92(0x247)]('.price-input')[_0x284b92(0x212)](_0x3a8324 => { const _0x2f3b88 = _0x284b92; _0x3a8324[_0x2f3b88(0x24b)](_0x2f3b88(0x222), _0x30ef6f => { const _0x228a02 = _0x2f3b88, _0x5ee5cf = parseInt(_0x30ef6f[_0x228a02(0x22f)][_0x228a02(0x207)][_0x228a02(0x216)]), _0xb348bf = parseFloat(_0x30ef6f[_0x228a02(0x22f)][_0x228a02(0x225)]); if (!isNaN(_0xb348bf) && _0xb348bf >= 0x0) { const _0x518d24 = getProducts(); _0x518d24[_0x5ee5cf][_0x228a02(0x220)] = _0xb348bf, _0x518d24[_0x5ee5cf][_0x228a02(0x22a)] = new Date()[_0x228a02(0x223)](), saveProducts(_0x518d24), loadProducts(); } else alert(_0x228a02(0x22c)), loadProducts(); }); }), document['getElementById'](_0x284b92(0x1fd))[_0x284b92(0x1ed)][_0x284b92(0x230)] = _0x327e50 ? _0x284b92(0x251) : _0x284b92(0x1f3), document['getElementById'](_0x284b92(0x1fd))[_0x284b92(0x210)] = '⚠️\x20Some\x20products\x20have\x20low\x20stock\x20(≤\x20' + LOW_STOCK_THRESHOLD + _0x284b92(0x21c), updateGrandTotal(_0x398f3f); } function addProduct(_0x30de30) { const _0x3defd3 = _0x128353; _0x30de30[_0x3defd3(0x20c)](); const _0xea34de = document[_0x3defd3(0x1ef)](_0x3defd3(0x23c))[_0x3defd3(0x225)][_0x3defd3(0x203)](), _0x5e35d3 = document[_0x3defd3(0x1ef)](_0x3defd3(0x211))[_0x3defd3(0x225)][_0x3defd3(0x203)](), _0x3bda2e = parseInt(document['getElementById'](_0x3defd3(0x236))[_0x3defd3(0x225)]), _0x587457 = parseFloat(document[_0x3defd3(0x1ef)]('price')[_0x3defd3(0x225)]), _0x44c583 = document['getElementById']('supplier')[_0x3defd3(0x225)]; if (!_0xea34de || !_0x5e35d3 || isNaN(_0x3bda2e) || isNaN(_0x587457) || !_0x44c583) { alert(_0x3defd3(0x1f2)); return; } const _0xc76185 = getProducts(), _0x6564e6 = _0xc76185[_0x3defd3(0x214)](_0x2149c7 => _0x2149c7[_0x3defd3(0x211)] === _0x5e35d3); if (_0x6564e6) { alert(_0x3defd3(0x258)); return; } const _0x52eca5 = { 'name': _0xea34de, 'barcode': _0x5e35d3, 'quantity': _0x3bda2e, 'price': _0x587457, 'supplier': _0x44c583, 'updated': new Date()['toISOString']() }, _0x4e51fc = [..._0xc76185, _0x52eca5]; saveProducts(_0x4e51fc), loadProducts(), document[_0x3defd3(0x1ef)]('product-form')[_0x3defd3(0x1ec)](); } function removeProduct(_0x218865) { const _0x540afc = _0x128353; if (confirm(_0x540afc(0x1f8))) { const _0x250655 = getProducts(); _0x250655[_0x540afc(0x21f)](_0x218865, 0x1), saveProducts(_0x250655), loadProducts(); } } function exportToCSV() { const _0x4d436b = _0x128353, _0x3788d8 = getProducts(); if (_0x3788d8['length'] === 0x0) { alert(_0x4d436b(0x23f)); return; } let _0x378d06 = _0x4d436b(0x245), _0x55279d = 0x0; _0x3788d8['forEach'](_0x5f7e5c => { const _0xfa39ce = _0x4d436b, _0x36f76b = (_0x5f7e5c[_0xfa39ce(0x236)] * _0x5f7e5c[_0xfa39ce(0x220)])[_0xfa39ce(0x257)](0x2); _0x55279d += parseFloat(_0x36f76b); const _0x2cfc58 = '\x22' + _0x5f7e5c[_0xfa39ce(0x23c)] + '\x22,\x22' + (_0x5f7e5c['supplier'] || '') + _0xfa39ce(0x24f) + _0x5f7e5c[_0xfa39ce(0x211)] + _0xfa39ce(0x24f) + _0x5f7e5c['quantity'] + _0xfa39ce(0x24f) + _0x5f7e5c[_0xfa39ce(0x220)][_0xfa39ce(0x257)](0x2) + '\x22,\x22$' + _0x36f76b + '\x22,\x22' + new Date(_0x5f7e5c['updated'])[_0xfa39ce(0x22b)]() + '\x22\x0a'; _0x378d06 += _0x2cfc58; }), _0x378d06 += _0x4d436b(0x1e8) + _0x55279d['toFixed'](0x2) + _0x4d436b(0x224); const _0x45edae = encodeURI(_0x378d06), _0x1b60cb = document[_0x4d436b(0x253)]('a'); _0x1b60cb[_0x4d436b(0x228)](_0x4d436b(0x249), _0x45edae), _0x1b60cb['setAttribute']('download', _0x4d436b(0x255)), document[_0x4d436b(0x217)][_0x4d436b(0x226)](_0x1b60cb), _0x1b60cb['click'](), document['body'][_0x4d436b(0x254)](_0x1b60cb); } function importFromCSV(_0x520455) { const _0x289731 = _0x128353, _0x4e19ad = _0x520455[_0x289731(0x22f)][_0x289731(0x1f7)][0x0]; if (!_0x4e19ad) return; const _0x205764 = _0x4e19ad[_0x289731(0x23c)]['toLowerCase'](), _0x373efb = new FileReader(); function _0x3d620b(_0x5da07b) { const _0x246b84 = _0x289731, _0x523931 = [], _0x521e99 = getProducts(), _0x2a0472 = getSuppliers(), _0x2d6208 = []; for (let _0x5512b5 = 0x1; _0x5512b5 < _0x5da07b['length']; _0x5512b5++) { let _0x180b19 = _0x5da07b[_0x5512b5]['map'](_0x6c6adb => _0x6c6adb['trim']()); if (_0x180b19[_0x246b84(0x24c)] >= 0x6) { let [_0x288275, _0x32dbc2, _0x37abb8, _0x10461a, _0x5d28ea, _0x1f9382] = _0x180b19; _0x32dbc2 = _0x32dbc2 === _0x246b84(0x240) ? '' : _0x32dbc2; const _0x392475 = parseInt(_0x10461a), _0x56c1eb = parseFloat(_0x5d28ea); if (!isNaN(_0x392475) && !isNaN(_0x56c1eb)) { _0x32dbc2 && !_0x2a0472[_0x246b84(0x214)](_0x571eda => _0x571eda[_0x246b84(0x23c)] === _0x32dbc2) && (!_0x2d6208[_0x246b84(0x214)](_0x5810bf => _0x5810bf[_0x246b84(0x23c)] === _0x32dbc2) && _0x2d6208[_0x246b84(0x21a)]({ 'name': _0x32dbc2 })); const _0x4cb034 = _0x521e99[_0x246b84(0x214)](_0xfbd041 => _0xfbd041[_0x246b84(0x211)] === _0x37abb8); !_0x4cb034 && _0x523931[_0x246b84(0x21a)]({ 'name': _0x288275, 'supplier': _0x32dbc2, 'barcode': _0x37abb8, 'quantity': _0x392475, 'price': _0x56c1eb, 'updated': _0x1f9382 ? new Date(_0x1f9382)[_0x246b84(0x223)]() : new Date()['toISOString']() }); } } } const _0x3de42d = [..._0x2a0472, ..._0x2d6208], _0x1f7fb7 = _0x3de42d[_0x246b84(0x20b)]((_0x125148, _0x2f0a2a, _0x5d4854) => _0x5d4854[_0x246b84(0x24d)](_0xd9e4e9 => _0xd9e4e9['name'] === _0x125148[_0x246b84(0x23c)]) === _0x2f0a2a); saveSuppliers(_0x1f7fb7), loadSuppliers(); if (_0x523931['length'] === 0x0) { alert(_0x246b84(0x229)); return; } const _0x4fcbb6 = [..._0x521e99, ..._0x523931]; localStorage[_0x246b84(0x241)]('products_backup', JSON[_0x246b84(0x1e9)](_0x521e99)), saveProducts(_0x4fcbb6), loadProducts(), alert(_0x523931[_0x246b84(0x24c)] + _0x246b84(0x1ee)); } } function undoLastChange() { const _0x390fef = _0x128353, _0x4ff918 = JSON['parse'](localStorage['getItem'](_0x390fef(0x202))) || []; if (_0x4ff918[_0x390fef(0x24c)] === 0x0) { alert(_0x390fef(0x246)); return; } const _0x2133bf = _0x4ff918[0x0]?.[_0x390fef(0x250)] || []; if (_0x2133bf[_0x390fef(0x24c)] === 0x0) { alert(_0x390fef(0x1eb)); return; } confirm(_0x390fef(0x215)) && (saveProducts(_0x2133bf), loadProducts(_0x2133bf), alert(_0x390fef(0x20f))); } function undoLastImport() { const _0x2c2321 = _0x128353, _0x21299a = JSON[_0x2c2321(0x204)](localStorage['getItem'](_0x2c2321(0x238))); if (!_0x21299a) { alert(_0x2c2321(0x235)); return; } confirm(_0x2c2321(0x23d)) && (saveProducts(_0x21299a), loadProducts(_0x21299a), alert('Successfully\x20reverted\x20to\x20previous\x20version.')); } function _0x2bea() { const _0x3a4474 = ['scrollTo', '\x22,\x22', 'products', 'block', '\x22\x20class=\x22qty-input\x22\x20/></td>\x0a\x20\x20\x20\x20\x20\x20<td><input\x20type=\x22number\x22\x20value=\x22', 'createElement', 'removeChild', 'stock-export.csv', '</td>\x0a\x20\x20\x20\x20\x20\x20<td><button\x20onclick=\x22removeProduct(', 'toFixed', 'A\x20product\x20with\x20this\x20barcode\x20already\x20exists!', '175JKOqkz', 'removeItem', 'Supplier\x20name\x20is\x20required.', 'stock-threshold', '\x0a,,,,,$', 'stringify', 'supplier-name', 'No\x20previous\x20version\x20found.', 'reset', 'style', '\x20new\x20product(s)\x20imported\x20successfully.', 'getElementById', ')\x22>Delete</button></td>\x0a\x20\x20\x20\x20', 'smooth', 'Please\x20fill\x20all\x20fields\x20including\x20supplier\x20and\x20price.', 'none', '77640nRDNnW', '<tr><td\x20colspan=\x278\x27>No\x20products\x20added\x20yet.</td></tr>', 'submit', 'files', 'Are\x20you\x20sure\x20you\x20want\x20to\x20delete\x20this\x20product?', 'Are\x20you\x20sure\x20you\x20want\x20to\x20clear\x20all\x20products?', '5208120XpxDiz', 'suppliers', 'All\x20products\x20have\x20been\x20cleared.', 'low-stock-alert', '\x0a\x20\x20\x20\x20\x20\x20<td>', 'backToTopBtn', '.qty-input', '278498eeXSDR', 'products_history', 'trim', 'parse', '1699855qYTjuz', 'loadAllProducts', 'dataset', 'grand-total', 'textContent', 'innerHTML', 'filter', 'preventDefault', '\x22\x20data-index=\x22', 'option', 'Last\x20change\x20undone.', 'innerText', 'barcode', 'forEach', 'Please\x20enter\x20a\x20valid\x20quantity.', 'some', 'Revert\x20to\x20last\x20saved\x20version?', 'index', 'body', 'reduce', '</td>\x0a\x20\x20\x20\x20\x20\x20<td>', 'push', 'low_stock_threshold', ').\x20Consider\x20restocking.', 'getItem', 'product-list', 'splice', 'price', '6271317oDOBmz', 'change', 'toISOString', ',,Grand\x20Total', 'value', 'appendChild', 'scrollY', 'setAttribute', 'No\x20valid\x20or\x20new\x20products\x20found\x20in\x20CSV.', 'updated', 'toLocaleString', 'Please\x20enter\x20a\x20valid\x20price.', 'pop', 'search', 'target', 'display', 'filterLowStock', '<option\x20value=\x27\x27>Select\x20Supplier</option>', '4YUqDBq', 'input', 'No\x20previous\x20backup\x20found.', 'quantity', '624366UzaySX', 'products_backup', 'click', '720368qfwEpW', 'product-form', 'name', 'Revert\x20to\x20previous\x20version?', 'includes', 'No\x20products\x20to\x20export.', 'null', 'setItem', '3xBBtUv', 'DOMContentLoaded', 'All\x20data\x20has\x20been\x20reset.', 'data:text/csv;charset=utf-8,Name,Supplier,Barcode,Quantity,Price,Total\x20Value,Last\x20Updated\x0a', 'No\x20changes\x20to\x20undo.', 'querySelectorAll', 'supplier', 'href', 'toLowerCase', 'addEventListener', 'length', 'findIndex']; _0x2bea = function () { return _0x3a4474; }; return _0x2bea(); } function clearProductList() { const _0x4f94f2 = _0x128353; if (confirm(_0x4f94f2(0x1f9))) { const _0x547e1c = getProducts(); localStorage[_0x4f94f2(0x241)](_0x4f94f2(0x238), JSON['stringify'](_0x547e1c)), saveProducts([]), loadProducts(), alert(_0x4f94f2(0x1fc)); } } function resetApp() { const _0x13e133 = _0x128353; confirm('Are\x20you\x20sure\x20you\x20want\x20to\x20reset\x20the\x20app?\x20This\x20will\x20remove\x20all\x20data.') && (localStorage[_0x13e133(0x1e5)]('products'), localStorage[_0x13e133(0x1e5)](_0x13e133(0x1fb)), localStorage[_0x13e133(0x1e5)](_0x13e133(0x238)), localStorage[_0x13e133(0x1e5)](_0x13e133(0x202)), localStorage[_0x13e133(0x1e5)](_0x13e133(0x21b)), loadSuppliers(), loadProducts(), alert(_0x13e133(0x244))); } function setLowStockThreshold() { const _0x13d883 = _0x128353, _0x489856 = document['getElementById'](_0x13d883(0x1e7)), _0x50bfd5 = parseInt(_0x489856[_0x13d883(0x225)]); !isNaN(_0x50bfd5) && _0x50bfd5 >= 0x0 ? (LOW_STOCK_THRESHOLD = _0x50bfd5, localStorage[_0x13d883(0x241)](_0x13d883(0x21b), _0x50bfd5), loadProducts(), alert('Low\x20stock\x20threshold\x20set\x20to\x20' + _0x50bfd5)) : (alert('Please\x20enter\x20a\x20valid\x20number.'), _0x489856['value'] = LOW_STOCK_THRESHOLD); } function updateGrandTotal(_0x46a8ed = getProducts()) { const _0x3e26f3 = _0x128353, _0x41cbb9 = _0x46a8ed[_0x3e26f3(0x218)]((_0x230998, _0x274046) => _0x230998 + _0x274046[_0x3e26f3(0x236)] * _0x274046['price'], 0x0); document[_0x3e26f3(0x1ef)](_0x3e26f3(0x208))['textContent'] = '$' + _0x41cbb9[_0x3e26f3(0x257)](0x2); } function getSuppliers() { const _0x5b3b04 = _0x128353; return JSON[_0x5b3b04(0x204)](localStorage[_0x5b3b04(0x21d)](_0x5b3b04(0x1fb)) || '[]'); } function saveSuppliers(_0x11c78c) { const _0x40abd5 = _0x128353; localStorage[_0x40abd5(0x241)]('suppliers', JSON[_0x40abd5(0x1e9)](_0x11c78c)); } function _0x3506(_0x2fb338, _0x21144e) { const _0x2bea1c = _0x2bea(); return _0x3506 = function (_0x3506bf, _0x5edc4b) { _0x3506bf = _0x3506bf - 0x1e5; let _0x57e87f = _0x2bea1c[_0x3506bf]; return _0x57e87f; }, _0x3506(_0x2fb338, _0x21144e); } const backToTopBtn = document[_0x128353(0x1ef)](_0x128353(0x1ff)); backToTopBtn && (window[_0x128353(0x24b)]('scroll', () => { const _0x376940 = _0x128353; window[_0x376940(0x227)] > 0x12c ? backToTopBtn[_0x376940(0x1ed)][_0x376940(0x230)] = _0x376940(0x251) : backToTopBtn[_0x376940(0x1ed)]['display'] = _0x376940(0x1f3); }), backToTopBtn['addEventListener'](_0x128353(0x239), () => { const _0x1af582 = _0x128353; window[_0x1af582(0x24e)]({ 'top': 0x0, 'behavior': _0x1af582(0x1f1) }); }));
-
-// This is the "Offline page" service worker
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-const CACHE = "pwabuilder-page";
-
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "ToDo-replace-this-name.html";
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
-self.addEventListener('install', async (event) => {
-  event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
-  );
-});
-
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
+// Configuration
+function getLowStockThreshold() {
+  const saved = localStorage.getItem("low_stock_threshold");
+  return saved && !isNaN(saved) ? parseInt(saved) : 25;
 }
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
+let LOW_STOCK_THRESHOLD = getLowStockThreshold();
 
-        if (preloadResp) {
-          return preloadResp;
-        }
+document.addEventListener("DOMContentLoaded", () => {
+  loadSuppliers();
+  loadProducts();
 
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
+  // Add Product Form Submit
+  document.getElementById("product-form").addEventListener("submit", addProduct);
 
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
+  // Search Input Handler
+  const searchInput = document.getElementById("search");
+  if (searchInput) {
+    searchInput.addEventListener("input", e => {
+      const query = e.target.value.toLowerCase();
+      const products = getProducts();
+
+      const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(query) ||
+        (product.supplier && product.supplier.toLowerCase().includes(query)) ||
+        product.barcode.includes(query)
+      );
+
+      loadProducts(filtered);
+    });
+  }
+
+  // Show All Products Button
+  window.loadAllProducts = () => {
+    loadProducts();
+  };
+
+  // Show Only Low Stock Products
+  window.filterLowStock = () => {
+    const products = getProducts().filter(p => p.quantity <= LOW_STOCK_THRESHOLD);
+    loadProducts(products);
+  };
+
+  // Set Threshold Input Listener
+  const thresholdInput = document.getElementById("stock-threshold");
+  if (thresholdInput) {
+    thresholdInput.value = LOW_STOCK_THRESHOLD;
+    thresholdInput.addEventListener("change", setLowStockThreshold);
+  }
+
+  // Back to Top Button Logic
+  const backToTopBtn = document.getElementById("backToTopBtn");
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 });
+
+// =============
+// SUPPLIERS
+// =============
+
+function getSuppliers() {
+  return JSON.parse(localStorage.getItem("suppliers") || "[]");
+}
+
+function saveSuppliers(suppliers) {
+  localStorage.setItem("suppliers", JSON.stringify(suppliers));
+}
+
+function loadSuppliers() {
+  const suppliers = getSuppliers();
+  const select = document.getElementById("supplier");
+  select.innerHTML = "<option value=''>Select Supplier</option>";
+
+  suppliers.forEach(supplier => {
+    const option = document.createElement("option");
+    option.value = supplier.name;
+    option.textContent = supplier.name;
+    select.appendChild(option);
+  });
+}
+
+function addSupplier() {
+  const name = document.getElementById("supplier-name").value.trim();
+
+  if (!name) {
+    alert("Supplier name is required.");
+    return;
+  }
+
+  const suppliers = getSuppliers();
+
+  if (suppliers.some(s => s.name === name)) {
+    alert("A supplier with that name already exists.");
+    return;
+  }
+
+  suppliers.push({ name });
+  saveSuppliers(suppliers);
+  loadSuppliers();
+  document.getElementById("supplier-name").value = "";
+}
+
+// =============
+// PRODUCTS
+// =============
+
+function getProducts() {
+  const raw = localStorage.getItem("products");
+  const products = raw ? JSON.parse(raw) : [];
+
+  return products.map(product => ({
+    ...product,
+    quantity: parseInt(product.quantity),
+    price: parseFloat(product.price),
+    updated: product.updated ? new Date(product.updated).toISOString() : new Date().toISOString()
+  }));
+}
+
+function saveProducts(products) {
+  // Save current state to history
+  const history = JSON.parse(localStorage.getItem("products_history") || "[]");
+  history.unshift({
+    timestamp: new Date().toISOString(),
+    products: getProducts()
+  });
+
+  if (history.length > 5) history.pop(); // Keep only last 5 versions
+
+  localStorage.setItem("products_history", JSON.stringify(history));
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+function loadProducts(originalList = getProducts()) {
+  const tbody = document.getElementById("product-list");
+  tbody.innerHTML = "";
+
+  if (originalList.length === 0) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td colspan='8'>No products added yet.</td>";
+    tbody.appendChild(tr);
+    document.getElementById("low-stock-alert").style.display = "none";
+    updateGrandTotal([]);
+    return;
+  }
+
+  let hasLowStock = false;
+
+  originalList.forEach((product, index) => {
+    if (product.quantity <= LOW_STOCK_THRESHOLD) hasLowStock = true;
+
+    const tr = document.createElement("tr");
+
+    const totalValue = (product.quantity * product.price).toFixed(2);
+
+    tr.innerHTML = `
+      <td>${product.name}</td>
+      <td>${product.supplier || "-"}</td>
+      <td>${product.barcode}</td>
+      <td><input type="number" value="${product.quantity}" data-index="${index}" class="qty-input" /></td>
+      <td><input type="number" value="${parseFloat(product.price).toFixed(2)}" data-index="${index}" class="price-input" /></td>
+      <td>$${totalValue}</td>
+      <td>${new Date(product.updated).toLocaleString()}</td>
+      <td><button onclick="removeProduct(${index})">Delete</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Quantity input events
+  document.querySelectorAll(".qty-input").forEach(input => {
+    input.addEventListener("change", e => {
+      const index = parseInt(e.target.dataset.index);
+      const newQty = parseInt(e.target.value);
+
+      if (!isNaN(newQty) && newQty >= 0) {
+        const products = getProducts();
+        products[index].quantity = newQty;
+        products[index].updated = new Date().toISOString();
+        saveProducts(products);
+        loadProducts();
+      } else {
+        alert("Please enter a valid quantity.");
+        loadProducts(); // Reset invalid input
+      }
+    });
+  });
+
+  // Price input events
+  document.querySelectorAll(".price-input").forEach(input => {
+    input.addEventListener("change", e => {
+      const index = parseInt(e.target.dataset.index);
+      const newPrice = parseFloat(e.target.value);
+
+      if (!isNaN(newPrice) && newPrice >= 0) {
+        const products = getProducts();
+        products[index].price = newPrice;
+        products[index].updated = new Date().toISOString();
+        saveProducts(products);
+        loadProducts();
+      } else {
+        alert("Please enter a valid price.");
+        loadProducts(); // Reset invalid input
+      }
+    });
+  });
+
+  document.getElementById("low-stock-alert").style.display =
+    hasLowStock ? "block" : "none";
+
+  document.getElementById("low-stock-alert").innerText =
+    `⚠️ Some products have low stock (≤ ${LOW_STOCK_THRESHOLD}). Consider restocking.`;
+
+  updateGrandTotal(originalList);
+}
+
+function addProduct(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const barcode = document.getElementById("barcode").value.trim();
+  const quantity = parseInt(document.getElementById("quantity").value);
+  const price = parseFloat(document.getElementById("price").value);
+  const supplier = document.getElementById("supplier").value;
+
+  if (!name || !barcode || isNaN(quantity) || isNaN(price) || !supplier) {
+    alert("Please fill all fields including supplier and price.");
+    return;
+  }
+
+  const existingProducts = getProducts();
+
+  // Check for duplicate barcode before adding
+  const isDuplicate = existingProducts.some(p => p.barcode === barcode);
+  if (isDuplicate) {
+    alert("A product with this barcode already exists!");
+    return;
+  }
+
+  const newProduct = {
+    name,
+    barcode,
+    quantity,
+    price,
+    supplier,
+    updated: new Date().toISOString()
+  };
+
+  const merged = [...existingProducts, newProduct];
+  saveProducts(merged);
+  loadProducts();
+  document.getElementById("product-form").reset();
+}
+
+function removeProduct(index) {
+  if (confirm("Are you sure you want to delete this product?")) {
+    const products = getProducts();
+    products.splice(index, 1);
+    saveProducts(products);
+    loadProducts();
+  }
+}
+
+// =============
+// CSV EXPORT
+// =============
+function exportToCSV() {
+  const products = getProducts();
+  if (products.length === 0) {
+    alert("No products to export.");
+    return;
+  }
+
+  // Choose simple format for export (no $, no quotes)
+  let csvContent = "Name,Supplier,Barcode,Quantity,Price,Total Value,Last Updated\r\n";
+  let grandTotal = 0;
+
+  products.forEach(product => {
+    const totalValue = (product.quantity * product.price).toFixed(2);
+    grandTotal += parseFloat(totalValue);
+
+    // Export without $ symbols
+    const row = `${product.name},${product.supplier || ''},${product.barcode},${product.quantity},${product.price.toFixed(2)},${totalValue},${new Date(product.updated).toLocaleString()}`;
+    csvContent += row + "\r\n";
+  });
+
+  // Add Grand Total at end
+  csvContent += `\r\n,,,,,${grandTotal.toFixed(2)},,Grand Total`;
+
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8,' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.setAttribute("href", url);
+  link.setAttribute("download", "stock-export.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  alert("✅ Export completed successfully!");
+}
+
+
+// =============
+// CSV IMPORT
+// =============
+function importFromCSV(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const fileName = file.name.toLowerCase();
+  const reader = new FileReader();
+
+  function processRows(rows) {
+    const productsToImport = [];
+    const existingProducts = getProducts();
+
+    // Find header row
+    let headerIndex = -1;
+    for (let i = 0; i < rows.length; i++) {
+      const cols = rows[i].map(cell => cell.trim().toLowerCase());
+      const isHeader = cols.some(col =>
+        ["name", "product", "supplier", "barcode", "quantity", "price", "total value", "last updated"].includes(col)
+      );
+      if (isHeader) {
+        headerIndex = i;
+        break;
+      }
+    }
+
+    if (headerIndex === -1) {
+      alert("No valid header row found in CSV.");
+      return;
+    }
+
+    const headers = rows[headerIndex].map(h => h.trim().toLowerCase());
+
+    const nameIndex = headers.indexOf("name");
+    const supplierIndex = headers.indexOf("supplier");
+    const barcodeIndex = headers.indexOf("barcode");
+    const quantityIndex = headers.indexOf("quantity");
+    const priceIndex = headers.indexOf("price");
+    const updatedIndex = headers.indexOf("last updated");
+
+    // Ensure required fields are present
+    if (
+      nameIndex === -1 ||
+      barcodeIndex === -1 ||
+      quantityIndex === -1 ||
+      priceIndex === -1
+    ) {
+      alert("Missing required columns in CSV. Required: Name, Barcode, Quantity, Price");
+      return;
+    }
+
+    // Process each data row
+    for (let i = headerIndex + 1; i < rows.length; i++) {
+      const cols = rows[i].map(cell => cell.trim());
+
+      // Skip empty rows
+      if (cols.every(cell => !cell)) continue;
+
+      // Skip summary rows like "Grand Total"
+      if (cols[0] === "" && cols.includes("Grand Total")) continue;
+
+      const name = cols[nameIndex];
+      const supplier = supplierIndex !== -1 ? cols[supplierIndex] : "";
+      const barcode = cols[barcodeIndex];
+      let quantityStr = cols[quantityIndex];
+      let priceStr = cols[priceIndex];
+      const updated = updatedIndex !== -1 ? cols[updatedIndex] : "";
+
+      // Remove $ signs and commas from price
+      priceStr = priceStr.replace(/[,$]/g, "").replace(/^\$?(\d+\.?\d*)$/, "$1");
+
+      const quantity = parseInt(quantityStr);
+      const price = parseFloat(priceStr);
+
+      if (!isNaN(quantity) && !isNaN(price) && barcode) {
+        // Skip if barcode already exists
+        const isDuplicate = existingProducts.some(p => p.barcode === barcode);
+        if (!isDuplicate) {
+          productsToImport.push({
+            name,
+            supplier,
+            barcode,
+            quantity,
+            price,
+            updated: updated ? new Date(updated).toISOString() : new Date().toISOString()
+          });
+        }
+      }
+    }
+
+    if (productsToImport.length === 0) {
+      alert("No valid products found in CSV.");
+      return;
+    }
+
+    const merged = [...existingProducts, ...productsToImport];
+    localStorage.setItem("products_backup", JSON.stringify(existingProducts));
+    saveProducts(merged);
+    loadProducts();
+    alert(`${productsToImport.length} product(s) imported successfully.`);
+  }
+
+  if (fileName.endsWith('.csv')) {
+    Papa.parse(file, {
+      header: false,
+      skipEmptyLines: true,
+      complete: function (results) {
+        const parsedRows = results.data.map(row => row.map(cell => cell.trim()));
+        processRows(parsedRows);
+      },
+      error: function (err) {
+        alert("Error reading CSV file.");
+        console.error("PapaParse error:", err);
+      }
+    });
+  } else if (fileName.endsWith('.xlsx') || fileName.endsWith('.xls') || fileName.endsWith('.ods')) {
+    reader.onload = function (e) {
+      const data = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(data, { type: 'array' });
+      const firstSheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[firstSheetName];
+      const json = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+      processRows(json);
+    };
+    reader.readAsArrayBuffer(file);
+  } else {
+    alert("Unsupported file format.");
+  }
+}
+
+// =============
+// UNDO / REDO
+// =============
+
+function undoLastChange() {
+  const history = JSON.parse(localStorage.getItem("products_history") || "[]");
+
+  if (history.length === 0) {
+    alert("No changes to undo.");
+    return;
+  }
+
+  const previousVersion = history[0]?.products || [];
+
+  if (previousVersion.length === 0) {
+    alert("No previous version found.");
+    return;
+  }
+
+  if (confirm("Revert to last saved version?")) {
+    saveProducts(previousVersion);
+    loadProducts(previousVersion);
+    alert("Last change undone.");
+  }
+}
+
+function undoLastImport() {
+  const backup = JSON.parse(localStorage.getItem("products_backup"));
+
+  if (!backup) {
+    alert("No previous backup found.");
+    return;
+  }
+
+  if (confirm("Revert to previous version?")) {
+    saveProducts(backup);
+    loadProducts(backup);
+    alert("Successfully reverted to previous version.");
+  }
+}
+
+function clearProductList() {
+  if (confirm("Are you sure you want to clear all products?")) {
+    const backup = getProducts(); // Save current list before clearing
+    localStorage.setItem("products_backup", JSON.stringify(backup));
+    saveProducts([]);
+    loadProducts([]); // Force empty reload
+    updateGrandTotal([]);
+    alert("All products have been cleared.");
+  }
+}
+
+function resetApp() {
+  if (confirm("Are you sure you want to reset the app? This will remove all data.")) {
+    localStorage.removeItem("products");
+    localStorage.removeItem("suppliers");
+    localStorage.removeItem("products_backup");
+    localStorage.removeItem("products_history");
+    localStorage.removeItem("low_stock_threshold");
+
+    loadSuppliers();
+    loadProducts();
+    alert("All data has been reset.");
+  }
+}
+
+function setLowStockThreshold() {
+  const input = document.getElementById("stock-threshold");
+  const newThreshold = parseInt(input.value);
+
+  if (!isNaN(newThreshold) && newThreshold >= 0) {
+    LOW_STOCK_THRESHOLD = newThreshold;
+    localStorage.setItem("low_stock_threshold", newThreshold);
+    loadProducts();
+    alert(`Low stock threshold set to ${newThreshold}`);
+  } else {
+    alert("Please enter a valid number.");
+    input.value = LOW_STOCK_THRESHOLD;
+  }
+}
+
+// =============
+// UTILITIES
+// =============
+
+function updateGrandTotal(products = getProducts()) {
+  const totalValue = products.reduce((sum, p) => sum + (p.quantity * p.price), 0);
+  document.getElementById("grand-total").textContent = `$${totalValue.toFixed(2)}`;
+}
